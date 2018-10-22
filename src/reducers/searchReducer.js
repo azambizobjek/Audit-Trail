@@ -1,34 +1,42 @@
-import {BASIC_SEARCH} from '../actions/types'
+import {
+    GET_BASIC_SEARCH,
+    SET_SEARCH_PARAM,
+    GET_CONTAINER,
+    RESET_CONF,
+    GET_ADV_SEARCH} from '../actions/types'
 
-
-const initialState={
-    basicKey:null
-
+const initialState = {
+    parameter:{},
+    recordList:[],
+    containerList:[]
 }
 
-export default function(state = initialState, action){
-    switch(action.type){
-        case BASIC_SEARCH:
-        return {
-            ...state,
-            basicKey:action.payload,
-        }
-        // case TOGGLE_SIDENAV:
-        // return {
-        //     ...state,
-        //     toggleSideNav:action.payload
-        // }
-        // case SIDENAV_CLASS:
-        // return {
-        //     ...state,
-        //     navBarClass:action.payload
-        // }
-        // case ACTIVE_PAGE:
-        // return {
-        //     ...state,
-        //     activePage:action.payload
-        // }
-        default:
-        return state
+export default (state = initialState, action) => {
+  switch (action.type) {
+
+  case GET_BASIC_SEARCH:
+    return {
+        ...state,
+        recordList:action.payload
     }
+  case GET_ADV_SEARCH:
+    return {
+        ...state,
+        recordList:action.payload
+    }
+  case SET_SEARCH_PARAM:
+    return {
+        ...state,
+        parameter:action.payload
+    }
+  case GET_CONTAINER:
+    return {
+        ...state,
+        containerList:action.payload
+    }
+    case RESET_CONF:
+    return initialState
+  default:
+    return state
+  }
 }

@@ -1,4 +1,4 @@
-import {PAGE_CLASS,TOGGLE_SIDENAV,SIDENAV_CLASS,ACTIVE_PAGE} from './types'
+import {PAGE_CLASS,TOGGLE_SIDENAV,SIDENAV_CLASS,ACTIVE_PAGE,RESET_CONF} from './types'
 
 
 export const setPageClass=(pageClass)=>{
@@ -30,3 +30,8 @@ export const setNavToggle=(toggleVal, pageClass, navClass)=>dispatch=>{
         payload:pageName
     }
  }
+  export const resetConf=()=>{
+        return {
+            type:RESET_CONF
+        }
+     }

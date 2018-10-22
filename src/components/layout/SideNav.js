@@ -1,7 +1,15 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import {setActivePage} from '../../actions/layoutInitAction'
+
+import {folderRecId,documentRecId} from '../../config'
+
+import { setActivePage,resetConf } from '../../actions/layoutInitAction'
+import { toggleAdv,toggleErr } from '../../actions/modalAction'
+import { setPageTitle,changeMultiSel,setSelRec } from '../../actions/recordAction'
+import { getAdvSearch } from '../../actions/searchAction'
+import { setActiveHeader } from '../../actions/editorAction'
+
 
 class SideNav extends React.Component {
   constructor(){
@@ -32,8 +40,43 @@ class SideNav extends React.Component {
   }
   setActivePage=(e)=>{
       e.preventDefault()
-      this.props.setActivePage(e.target.getAttribute('data-pagename'))
-      console.log(e.target.getAttribute('data-pagename'))
+      const{user:{bio_access_id:bId,stakeholder_id:sId}}=this.props.session
+      const pgName = e.target.getAttribute('data-pagename')
+      this.props.setActivePage(pgName)
+      if(pgName==='adv-search'){
+        this.props.toggleAdv(true)
+      }else if(pgName==='log'){
+        this.props.toggleErr(true)
+      }else if(pgName==='folder'){
+        this.props.resetConf()
+        this.props.setPageTitle('All Folders')
+        const params={
+          bio_access_id:bId,
+          action:'ADVANCED_SEARCH_PAGING',
+          query:`owner_id:%22quostr%3B${sId}%22quostr%3B`,
+          record_type_ids:[folderRecId]
+        }
+        this.props.getAdvSearch(params,{page:1,start:0,limit:20})
+        this.props.changeMultiSel(false)
+        this.props.setSelRec(null)
+        this.props.setActiveHeader('folder')
+
+
+      }else if(pgName==='document'){
+        this.props.resetConf()
+        this.props.setPageTitle('All Documents')
+        const params={
+          bio_access_id:bId,
+          action:'ADVANCED_SEARCH_PAGING',
+          query:`owner_id:%22quostr%3B${sId}%22quostr%3B`,
+          record_type_ids:[documentRecId]
+        }
+        this.props.getAdvSearch(params,{page:1,start:0,limit:20})
+        this.props.changeMultiSel(false)
+        this.props.setSelRec(null)
+        this.props.setActiveHeader('document')
+
+      }
     //   folderrecId= `record_type_ids:['rect-919a34ded12d44559f44914bc15d7725'`
     // documentrecId = `rect-f7eb2eab56b8440a9b436d9fe717fd83'`
   }
@@ -133,9 +176,26 @@ SideNav.propTypes={
     session: PropTypes.object.isRequired,
     layout: PropTypes.object.isRequired,
     setActivePage: PropTypes.func.isRequired,
+    toggleAdv: PropTypes.func.isRequired,
+    toggleErr: PropTypes.func.isRequired,
+    setPageTitle: PropTypes.func.isRequired,
+    getAdvSearch: PropTypes.func.isRequired,
+    setActiveHeader: PropTypes.func.isRequired,
+    setSelRec: PropTypes.func.isRequired,
+    resetConf: PropTypes.func.isRequired,
+    changeMultiSel: PropTypes.func.isRequired
   }
   const mapStateToProps= state =>({
     session:state.session,
-    layout:state.layout
+    layout:state.layout,
   })
-  export default connect(mapStateToProps,{setActivePage})(SideNav)
+  export default connect(mapStateToProps,{
+    setActivePage,
+    toggleAdv,
+    toggleErr,
+    setPageTitle,
+    changeMultiSel,
+    setActiveHeader,
+    setSelRec,
+    resetConf,
+    getAdvSearch})(SideNav)

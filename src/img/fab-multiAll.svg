@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #247ba0;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #22b75e;
+      }
+
+      .cls-2 {
+        stroke: #b2dbbf;
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        fill: #f7fff7;
+      }
+
+      .cls-5 {
+        stroke: none;
+      }
+
+      .cls-6 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Group_41" data-name="Group 41" transform="translate(-804 -49.824)">
+    <path id="Path_80" data-name="Path 80" class="cls-1" d="M200,100a99.956,99.956,0,1,1-5.669-33.228,97.594,97.594,0,0,1,5.354,26.3A51.028,51.028,0,0,1,200,100Z" transform="translate(804 49.824)"/>
+    <g id="Rectangle_21" data-name="Rectangle 21" class="cls-2" transform="translate(914 159)">
+      <rect class="cls-5" width="44" height="43" rx="3"/>
+      <rect class="cls-6" x="1.5" y="1.5" width="41" height="40" rx="1.5"/>
+    </g>
+    <g id="Rectangle_22" data-name="Rectangle 22" class="cls-2" transform="translate(848 159)">
+      <rect class="cls-5" width="44" height="43" rx="3"/>
+      <rect class="cls-6" x="1.5" y="1.5" width="41" height="40" rx="1.5"/>
+    </g>
+    <g id="Rectangle_23" data-name="Rectangle 23" class="cls-2" transform="translate(848 98)">
+      <rect class="cls-5" width="44" height="43" rx="3"/>
+      <rect class="cls-6" x="1.5" y="1.5" width="41" height="40" rx="1.5"/>
+    </g>
+    <path id="Path_83" data-name="Path 83" class="cls-3" d="M50,25a24.989,24.989,0,1,1-1.417-8.307,24.4,24.4,0,0,1,1.339,6.575A12.757,12.757,0,0,1,50,25Z" transform="translate(910.69 94.514)"/>
+    <path id="checked" class="cls-4" d="M.372,16.646a1.2,1.2,0,0,1,0-1.737l1.737-1.737a1.2,1.2,0,0,1,1.737,0l.124.124,6.823,7.319a.6.6,0,0,0,.868,0L28.284,3.372h.124a1.2,1.2,0,0,1,1.737,0l1.737,1.737a1.2,1.2,0,0,1,0,1.737h0L12.033,27.438a1.2,1.2,0,0,1-1.737,0L.62,17.018l-.248-.372Z" transform="translate(920 104)"/>
+  </g>
+</svg>

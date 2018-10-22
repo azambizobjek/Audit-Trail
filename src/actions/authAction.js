@@ -4,7 +4,8 @@ import {
     LOG_OUT,
     AUTH_LOADING
    } from './types'
-import {biorisUrl} from '../config/appConf'
+
+import {biorisUrl} from '../config'
 
 export const login = (authData) => dispatch =>{
    dispatch(isAuth())

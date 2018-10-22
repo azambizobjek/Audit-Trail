@@ -5,19 +5,28 @@ import {LOG_OUT} from '../actions/types'
 import authReducer from './authReducer'
 import layoutInitReducer from './layoutInitReducer'
 import searchReducer from './searchReducer'
-// import stakehReducer from './stakehReducer'
-
-// import activitiesReducer from './activitiesReducer'
-// import taskReducer from './taskReducer'
-
+import dashReducer from './dashReducer'
+import modalReducer from './modalReducer'
+import stakehReducer from './stakehReducer'
+import logReducer from './logReducer'
+import batchLoadReducer from './batchLoadReducer'
+import recordReducer from './recordReducer'
+import editorReducer from './editorReducer'
+import childRecReducer from './childRecReducer'
+import breadcrumbReducer from './breadcrumbReducer'
 const appReducer = combineReducers({
     session:authReducer,
     layout:layoutInitReducer,
-    searchConf:searchReducer
-    // stakeh:stakehReducer,
-    // activities:activitiesReducer,
-    // tasks:taskReducer,
-    // records:recReducer
+    search:searchReducer,
+    dashConf:dashReducer,
+    modalConf:modalReducer,
+    stakeholder:stakehReducer,
+    batchErrLog:logReducer,
+    batchLoad:batchLoadReducer,
+    records:recordReducer,
+    editor:editorReducer,
+    childConf:childRecReducer,
+    breadcrumb:breadcrumbReducer
  })
 
 export const rootReducer = ( state, action ) => {

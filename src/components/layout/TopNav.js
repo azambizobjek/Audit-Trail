@@ -3,14 +3,28 @@ import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 
 import {setNavToggle,setActivePage} from '../../actions/layoutInitAction'
-import {basicSearch} from '../../actions/searchAction'
+import {setPageTitle} from '../../actions/recordAction'
 import {logout} from '../../actions/authAction'
+import { getAdvSearch } from '../../actions/searchAction'
+import { setNewBread } from '../../actions/breadcrumbAction'
 
 class TopNav extends Component {
 
   searchParam=(e)=>{
     e.preventDefault()
-    this.props.basicSearch(e.target.searchTxt.value)
+    const queryText = e.target.searchTxt.value
+    const{user:{bio_access_id:bId}}=this.props.session
+    this.props.setPageTitle(queryText)
+    this.props.setActivePage('basic-search')
+    const params={
+      bio_access_id:bId,
+      action:'BASIC_SEARCH_PAGING',
+      query:queryText
+    }
+  this.props.getAdvSearch(params,{page:1,start:0,limit:20})
+  this.props.setNewBread({
+    id:'basic-search', label:queryText, activePage:'basic-search', cls:'breadcrumb-item active'
+  })
   }
   doParentToggleFromChild=(e)=>{
     e.preventDefault()
@@ -83,11 +97,21 @@ TopNav.propTypes={
     session: PropTypes.object.isRequired,
     setNavToggle:PropTypes.func.isRequired,
     setActivePage:PropTypes.func.isRequired,
+    setPageTitle:PropTypes.func.isRequired,
+    getAdvSearch:PropTypes.func.isRequired,
+    setNewBread:PropTypes.func.isRequired,
     logout:PropTypes.func.isRequired
   }
   const mapStateToProps= state =>({
     layout:state.layout,
-    search:state.searchConf,
+    search:state.search,
     session:state.session
   })
-  export default connect(mapStateToProps,{setNavToggle,setActivePage,basicSearch,logout})(TopNav)
+  export default connect(mapStateToProps,{
+    setNavToggle,
+    setActivePage,
+    setPageTitle,
+    logout,
+    setNewBread,
+    getAdvSearch
+  })(TopNav)
