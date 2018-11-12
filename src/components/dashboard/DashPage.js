@@ -8,8 +8,9 @@ export default class DashPage extends Component {
   render() {
       return(
         <Fragment>
-          <Statistic/>
-          <History />
+          DASHBOARD
+          {/* <Statistic/>
+          <History /> */}
       </Fragment>
 
       )

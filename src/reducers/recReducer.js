@@ -1,16 +1,17 @@
-import { LIST_BATCH_ERR } from '../actions/types'
+import { RECORD_LIST } from '../actions/types'
+
 const initialState = {
-    log:[]
+    recordList:[]
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
 
-  case LIST_BATCH_ERR:
+  case RECORD_LIST:
     return {
         ...state,
-        log:action.payload
-     }
+        recordList:action.payload
+    }
 
   default:
     return state

@@ -1,9 +1,9 @@
-import { LIST_BATCH_ERR } from './types'
+import { LIST_AUDIT } from './types'
 
 import {biorisUrl} from '../config'
 
-export const getListErrBatch=(searchParam)=>dispatch=>{
-    const url=`${biorisUrl}/batchLog?param=${JSON.stringify(searchParam)}`
+export const getListAudit=(searchParam)=>dispatch=>{
+    const url=`${biorisUrl}/auditLog?param=${JSON.stringify(searchParam)}`
    fetch(url)
    .then(res=>res.json())
    .then(res=>{
@@ -16,7 +16,7 @@ export const getListErrBatch=(searchParam)=>dispatch=>{
             return 0
         })
        dispatch({
-            type: LIST_BATCH_ERR,
+            type: LIST_AUDIT,
             payload: res.results
         })
    })

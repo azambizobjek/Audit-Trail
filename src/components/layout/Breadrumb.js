@@ -29,7 +29,7 @@ class Breadrumb extends Component {
   render() {
     return (
       <ul className="breadcrumb">
-        <a className="breadcrumb-item" href='/'>Homes</a>
+        <a className="breadcrumb-item" href='/'>Home</a>
         <li className="breadcrumb-item active">Upload</li>
       </ul>
     )

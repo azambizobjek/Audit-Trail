@@ -7,12 +7,16 @@ import {setNavToggle,setPageClass, setSideNavClass} from '../actions/layoutInitA
 
 import {Footer, SideNav, TopNav} from '../components/layout'
 import Dashpage from './dashboard/DashPage'
+import PrintPage from './auditLog/PrintPage'
 import Viewer from './viewer'
 import BatchUpload from './batchUpload'
 import Log from './auditLog'
 import Editor from './editor'
 import FolEditor from './editor/FolEditor'
 import DocEditor from './editor/DocEditor'
+import PrintReport from './modal/PrintReport'
+import PrintUsage from './modal/PrintUsage'
+import PrintStatistic from './modal/PrintStatistic';
 
 class Home extends Component {
     components={
@@ -24,8 +28,13 @@ class Home extends Component {
         'batch-upload':BatchUpload,
         'log':Log,
         'folEditor':FolEditor,
-        'docEditor':DocEditor
-        // 'editor':Editor
+        'docEditor':DocEditor,
+        'print' : PrintPage,
+        'editor':Editor,
+        'printReport': PrintReport,
+        'printUsage': PrintUsage,
+        'printStat' : PrintStatistic
+
     }
 
     componentDidMount() {
@@ -55,14 +64,7 @@ class Home extends Component {
             <div className={pageClass}>
                 <TopNav/>
                 <Activepage/>
-            {/* <Switch>
-                <Route path ="/helper/:type/:navObj/:itmObj" component={MainHelper} />
-                <Route path ="/details/:type/:tab/:sub/:navObj/:itmObj" component={Wizard} />
-                <Route path ="/log" component={Log} />
-                <Route path ="/upload" component={UploaderMain} />
-                <Route path ="/search/:page" component={RecExplorerMain} />
-                <Route path ="/" component={DashPage} />
-            </Switch> */}
+         
 
             <Footer/>
         </div>

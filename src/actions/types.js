@@ -51,9 +51,18 @@ export const SET_LOADER_TEXT = 'SET_LOADER_TEXT'
 
 //stakeholder action and reducer link
 export const STAKEH_LIST = 'STAKEH_LIST'
+export const RECORD_LIST = 'RECORD_LIST'
+export const ACTION_TYPES = 'ACTION_TYPES'
+
+
 
 //err log action and reducer link
 export const LIST_BATCH_ERR = 'LIST_BATCH_ERR'
+export const LIST_BATCH_ERR2 = 'LIST_BATCH_ERR2'
+
+
+//err audit action and reducer link
+export const LIST_AUDIT = 'LIST_AUDIT'
 
 //batchLoad action and reducer link
 export const LIST_BATCH = 'LIST_BATCH'

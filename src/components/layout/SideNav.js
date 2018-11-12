@@ -26,7 +26,11 @@ class SideNav extends React.Component {
     switch(e.target.name){
       case 'folder':
         const folderState = this.state.folderToggle
-        this.setState({ folderToggle: !folderState, documentToggle:false})
+        this.setState({ folderToggle: !folderState, auditToggle:false})
+      break
+      case 'audit':
+        const auditState = this.state.auditToggle
+        this.setState({ auditToggle: !auditState, documentToggle:false})
       break
       case 'doc':
         const docState = this.state.documentToggle
@@ -45,9 +49,15 @@ class SideNav extends React.Component {
       this.props.setActivePage(pgName)
       if(pgName==='adv-search'){
         this.props.toggleAdv(true)
-      }else if(pgName==='log'){
+      }
+      else if(pgName==='log'){
         this.props.toggleErr(true)
-      }else if(pgName==='folder'){
+      }  
+      else if(pgName==='print'){
+          this.props.toggleErr(true)
+        }
+     
+      else if(pgName==='folder'){
         this.props.resetConf()
         this.props.setPageTitle('All Folders')
         const params={
@@ -128,37 +138,35 @@ class SideNav extends React.Component {
               </li>
               </ul>
             </li>
-            <li>
-              {/* Need to chage the a tag so it does not addinh the # on the url */}
-              <a href="/" aria-expanded={this.state.documentToggle} data-toggle="collapse" name="doc" className={this.state.documentToggle ? '' : 'collapsed'} onClick={this.toggleClass} >
-              <div className="userIcon"><img src={require(`../../img/document.svg`)} alt="doc" className="img-fluid p-1"/></div>Document </a>
-              <ul id="chartsDropdown" className={this.state.documentToggle ? 'collapse list-unstyled show' : 'collapse list-unstyled'}>
-              <li>
-                <a href="/" data-pagename="document" onClick={this.setActivePage}>
-                <div className="userIcon" data-pagename="document">
-                <img src={require(`../../img/search.svg`)} alt="doc" className="img-fluid p-1" data-pagename="document" /></div>Browse
-                </a>
-              </li>
 
-              <a href="/" aria-expanded={this.state.uploadToggle} data-toggle="collapse" name="upload" className={this.state.uploadToggle ? '' : 'collapsed'} onClick={this.toggleClass} >
-              <div className="userIcon"><img src={require(`../../img/out.svg`)} alt="doc" className="img-fluid p-1"/></div>Upload </a>
-              <ul id="chartsDropdown" className={this.state.uploadToggle ? 'collapse list-unstyled show' : 'collapse list-unstyled'}>
-                <li>
-                    <a href="/" data-pagename="batch-upload" onClick={this.setActivePage}>
-                    <div className="userIcon" data-pagename="batch-upload">
-                    <img src={require(`../../img/pdf.svg`)} alt="doc" className="img-fluid p-1" data-pagename="batch-upload"/></div>Batch Upload
-                    </a>
-                </li>
+
+
+            <li>
+              <a href="/" aria-expanded={this.state.documentToggle} data-toggle="collapse" name="doc" className={this.state.documentToggle ? '' : 'collapsed'} onClick={this.toggleClass} >
+              <div className="userIcon"><img src={require(`../../img/log.svg`)} alt="doc" className="img-fluid p-1"/></div>Audit Log </a>
+              <ul id="chartsDropdown" className={this.state.documentToggle ? 'collapse list-unstyled show' : 'collapse list-unstyled'}>
+
+             
+              
                 <li>
                     <a href="/" data-pagename="log" onClick={this.setActivePage}>
                     <div className="userIcon" data-pagename="log">
-                    <img src={require(`../../img/warning.svg`)} alt="doc" className="img-fluid p-1" data-pagename="log"/>
-                    </div>Error Log
+                    <img src={require(`../../img/search1.svg`)} alt="doc"  data-pagename="log"/>
+                    </div>Search
                     </a>
                 </li>
+                <li>
+                    <a href="/" data-pagename="print" onClick={this.setActivePage}>
+                    <div className="userIcon" data-pagename="print">
+                    <img src={require(`../../img/search1.svg`)} alt="doc"  data-pagename="print"/>
+                    </div>Print Report
+                    </a>
+                </li>
+
+                
+                
               </ul>
 
-              </ul>
             </li>
           </ul>
         </div>
