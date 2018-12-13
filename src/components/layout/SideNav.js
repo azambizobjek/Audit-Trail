@@ -1,9 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-
 import {folderRecId,documentRecId} from '../../config'
-
 import { setActivePage,resetConf } from '../../actions/layoutInitAction'
 import { toggleAdv,toggleErr } from '../../actions/modalAction'
 import { setPageTitle,changeMultiSel,setSelRec } from '../../actions/recordAction'
@@ -57,38 +55,8 @@ class SideNav extends React.Component {
           this.props.toggleErr(true)
         }
      
-      else if(pgName==='folder'){
-        this.props.resetConf()
-        this.props.setPageTitle('All Folders')
-        const params={
-          bio_access_id:bId,
-          action:'ADVANCED_SEARCH_PAGING',
-          query:`owner_id:%22quostr%3B${sId}%22quostr%3B`,
-          record_type_ids:[folderRecId]
-        }
-        this.props.getAdvSearch(params,{page:1,start:0,limit:20})
-        this.props.changeMultiSel(false)
-        this.props.setSelRec(null)
-        this.props.setActiveHeader('folder')
-
-
-      }else if(pgName==='document'){
-        this.props.resetConf()
-        this.props.setPageTitle('All Documents')
-        const params={
-          bio_access_id:bId,
-          action:'ADVANCED_SEARCH_PAGING',
-          query:`owner_id:%22quostr%3B${sId}%22quostr%3B`,
-          record_type_ids:[documentRecId]
-        }
-        this.props.getAdvSearch(params,{page:1,start:0,limit:20})
-        this.props.changeMultiSel(false)
-        this.props.setSelRec(null)
-        this.props.setActiveHeader('document')
-
-      }
-    //   folderrecId= `record_type_ids:['rect-919a34ded12d44559f44914bc15d7725'`
-    // documentrecId = `rect-f7eb2eab56b8440a9b436d9fe717fd83'`
+ 
+   
   }
 
   render() {
@@ -116,28 +84,7 @@ class SideNav extends React.Component {
         <div className="main-menu">
           <h5 className="sidenav-heading">Main</h5>
           <ul id="side-main-menu" className="side-menu list-unstyled">
-            <li>
-
-              <a href="/" aria-expanded={this.state.folderToggle} data-toggle="collapse" name="folder" className={this.state.folderToggle ? '' : 'collapsed'} onClick={this.toggleClass} >
-              <div className="userIcon"><img src={require(`../../img/folder.svg`)} alt="doc" className="img-fluid p-1"/></div>Folder </a>
-
-              <ul id="chartsDropdown" className={this.state.folderToggle ? 'collapse list-unstyled show' : 'collapse list-unstyled'}>
-                <li>
-                  <a href="/" onClick={this.setActivePage} data-pagename="folder">
-                    <div className="userIcon" data-pagename="folder">
-                        <img src={require(`../../img/folder3.svg`)} alt="doc" className="img-fluid p-1" data-pagename="folder"/>
-                    </div>Browse
-                  </a>
-                </li>
-                <li>
-                    <a href="/" onClick={this.setActivePage} data-pagename="adv-search">
-                    <div className="userIcon" data-pagename="adv-search">
-                    <img src={require(`../../img/loupe.svg`)} alt="doc" className="img-fluid p-1" data-pagename="adv-search" />
-                    </div>Find
-                    </a>
-              </li>
-              </ul>
-            </li>
+            
 
 
 
@@ -162,6 +109,8 @@ class SideNav extends React.Component {
                     </div>Print Report
                     </a>
                 </li>
+
+        
 
                 
                 

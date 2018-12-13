@@ -1,4 +1,25 @@
 /* Form */
+body {
+  height: 100vh;
+  padding: 0;
+  justify-content: stretch;
+  align-items: center;
+  display: flex;
+}
+
+#root {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+  background: rgb(53, 13, 13);
+}
+
 .form {
   position: relative;
   z-index: 1;

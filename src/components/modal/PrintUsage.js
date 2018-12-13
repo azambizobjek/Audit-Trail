@@ -8,7 +8,7 @@ import {getListAudit} from '../../actions/auditAction'
 import Breadcrumb from '../layout/Breadrumb'
 
 
-class PrintReport extends Component {
+class PrintUsage extends Component {
 
      
 
@@ -51,7 +51,10 @@ class PrintReport extends Component {
                 </header>
 
                  <div className="row">
+                 <div className="col-lg-12">
+
                  <ComponentPrintUsage ref={el => (this.componentRef = el)} />
+                </div>
                 </div>
 
                 </div>
@@ -61,7 +64,7 @@ class PrintReport extends Component {
   }
 }
 
-PrintReport.propTypes={
+PrintUsage.propTypes={
     auditlog: PropTypes.object.isRequired,
     session: PropTypes.object.isRequired,
     getListAudit:PropTypes.func.isRequired,
@@ -73,6 +76,6 @@ PrintReport.propTypes={
     session:state.session,
   
   })
-  export default connect(mapStateToProps, {getListAudit})(PrintReport)
+  export default connect(mapStateToProps, {getListAudit})(PrintUsage)
 
 

@@ -12,21 +12,6 @@ import moment from 'moment'
 class PrintReport extends Component {
 
      
-  formSubmit=(e)=>{
-    e.preventDefault()
-    const {user:{bio_access_id:bId}}=this.props.session
-    const param = {
-        action: "SEARCH_AUDIT_LOG",
-        bio_access_id: bId,
-        action_types:[],
-        date_from: moment('2018-01-01').format('DD/MM/YYYY'),
-        date_to: moment().format('DD/MM/YYYY'),
-        stakeholder_id:null,
-        record_id:null,
-    }
-    this.props.getListAudit(param)
-
-}
 
   render() {
 
@@ -45,14 +30,7 @@ class PrintReport extends Component {
                      <h1 className="h3 display">Print Audit Report</h1>
 
                            <div className="d-flex align-items-center">
-                           <Tooltip
-                           placement="top"overlay={<div style={{ height: 20, width: '100%' }}>Search</div>}
-                           arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
-                           >
-                           <button className="btn btn-sm btn-primary" onClick={this.formSubmit} >
-                           <i className="fa fa-folder"></i>
-                           </button>
-                           </Tooltip>
+                           
 
 
                   <Tooltip
@@ -76,7 +54,10 @@ class PrintReport extends Component {
                 </header>
 
                  <div className="row">
+                 <div className="col-lg-12">
+
                  <ComponentToPrint ref={el => (this.componentRef = el)} />
+                </div>
                 </div>
 
                 </div>

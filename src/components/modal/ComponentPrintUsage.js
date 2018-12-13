@@ -6,25 +6,93 @@ import {getListAudit} from '../../actions/auditAction'
 
 class ComponentToPrint extends Component {
 
+  
+ 
 
   render() {
+    const {audit}=this.props.auditlog
+    console.log(audit)
+
+    const auditID = audit.map((itm,idx)=>  {
+      return <p key={idx}> 
+      {itm.audit_id}
+      </p>
+    })
+
+      const audittype = audit.map((itm,idx)=>  {
+        return <p key={idx}> 
+        {itm.audit_type}
+        </p>
+        })
+
+        const username = audit.map((itm,idx)=>  {
+          return <p key={idx}> 
+          {itm.user_name}
+          </p>
+          })
+
+          const updatedby = audit.map((itm,idx)=>  {
+            return <p key={idx}> 
+            {itm.updated_by}
+            </p>
+            })
+
+   
+
+        
     return (
       <Fragment>
         <section>
 
-                 <div class="card data-usage">
-                <h2 class="display h4">Monthly Usage</h2>
-                <div class="row d-flex align-items-center">
-                  <div class="col-sm-6">
-                    <div  class="d-flex align-items-center justify-content-center">
-                    <img src={require(`../../img/circle.png`)}/>
-                    </div>
-                  </div>
-                  <div class="col-sm-6"><strong class="text-primary">75.00 Gb</strong><small>Current Plan</small><span>100 Gb Monthly</span></div>
+              <div className="card">
+                <div className="card-header">
+                  <h4>System Usage Report</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-              </div>
+                <div className="card-body">
 
+                {/* <button onClick={this.change}>Change State</button> */}
+
+                  <div className="table-responsive">
+                    <table  border="2" className="table table-striped">
+
+                      <thead>
+                        
+           
+
+                       <tr>
+                          <th>Audit ID</th>
+                          <th>Audit Type</th>
+                          <th>Username</th>
+                          <th>Updated By</th>
+                      </tr>
+                        
+                      </thead>
+
+
+                      <tbody> 
+          
+
+                      <tr>
+                      <td>
+                        <a> {auditID}</a> 
+                        </td>
+                        <td>
+                        <a> {audittype}</a> 
+                        </td>
+                        <td>
+                        <a> {username}</a> 
+                        </td>
+                        <td>
+                        <a> {updatedby}</a> 
+                        </td>
+                      </tr>
+         
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                </div>
+              </div>
         </section>
   
 

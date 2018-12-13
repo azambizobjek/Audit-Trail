@@ -17,6 +17,7 @@ class index extends Component {
 
   constructor(){
     super()
+    
     this.state={
         
         startdate : moment().startOf( 'months'),

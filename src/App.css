@@ -216,3 +216,8 @@ img.desaturate {
   max-height: 44vh;
   overflow-y: auto;
 }
+.box {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+}

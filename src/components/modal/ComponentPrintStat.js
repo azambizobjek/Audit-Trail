@@ -2,47 +2,95 @@ import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {getListAudit} from '../../actions/auditAction'
-import {BarChart} from 'react-easy-chart';
 
 
-
-class ComponentToPrint extends Component {
+class ComponentPrintStat extends Component {
 
 
   render() {
+    const {audit}=this.props.auditlog
+    console.log(audit)
+
+    const reportID = audit.map((itm,idx)=>  {
+      return <p key={idx}> 
+      {itm.record_id}
+      </p>
+    })
+
+      const actionType = audit.map((itm,idx)=>  {
+        return <p key={idx}> 
+        {itm.action_type}
+        </p>
+        })
+
+        const recordType = audit.map((itm,idx)=>  {
+          return <p key={idx}> 
+          {itm.record_type}
+          </p>
+          })
+
+          const dateUpdate = audit.map((itm,idx)=>  {
+            return <p key={idx}> 
+            {itm.date_updated}
+            </p>
+            })
+
+   
+
+        
     return (
       <Fragment>
         <section>
 
-                     
-
-
-        <div className="col-lg-12">
-        {/* {/* <div className="card"> */}
-        <div className="card-body">
-
-
-
-                 <div className="card data-usage">
-                <h2 className="display h4">Monthly Usage</h2>
-                <div className="row d-flex align-items-center">
-                  <div className="col-sm-6">
-                    <div  className="d-flex align-items-center justify-content-center"> 
-           
-                
-                     <img src={require(`../../img/bar.png`)} alt="Card image cap" className="img-card mt-2"/>
-                    
-                  
-                    </div>
-                  </div>
-                  <div className="col-sm-6"><strong className="text-primary">75.00 Gb</strong><small>Current Plan</small><span>100 Gb Monthly</span></div>
+              <div className="card">
+                <div className="card-header">
+                  <h4>Record Statistic Report</h4>
                 </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-              </div>
+                <div className="card-body">
 
-        {/* </div> */}
-        </div>
-        </div>
+                {/* <button onClick={this.change}>Change State</button> */}
+
+                  <div className="table-responsive">
+                    <table  border="2" className="table table-striped">
+
+                      <thead>
+                        
+           
+
+                       <tr>
+                          <th>Record ID</th>
+                          <th>Action Type</th>
+                          <th>Record Type</th>
+                          <th>Date Update</th>
+                      </tr>
+                        
+                      </thead>
+
+
+                      <tbody> 
+          
+
+                      <tr>
+                      <td>
+                        <a> {reportID}</a> 
+                        </td>
+                        <td>
+                        <a> {actionType}</a> 
+                        </td>
+                        <td>
+                        <a> {recordType}</a> 
+                        </td>
+                        <td>
+                        <a> {dateUpdate}</a> 
+                        </td>
+                      </tr>
+         
+                      </tbody>
+                      
+                    </table>
+                  </div>
+                </div>
+              </div>
         </section>
   
 
@@ -52,7 +100,7 @@ class ComponentToPrint extends Component {
   }
 }
 
-ComponentToPrint.propTypes={
+ComponentPrintStat.propTypes={
   auditlog: PropTypes.object.isRequired,
   session: PropTypes.object.isRequired,
   getListAudit:PropTypes.func.isRequired,
@@ -64,6 +112,6 @@ const mapStateToProps= state =>({
   session:state.session,
 
 })
-export default connect(mapStateToProps, {getListAudit})(ComponentToPrint)
+export default connect(mapStateToProps, {getListAudit})(ComponentPrintStat)
 
 

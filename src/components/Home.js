@@ -16,7 +16,8 @@ import FolEditor from './editor/FolEditor'
 import DocEditor from './editor/DocEditor'
 import PrintReport from './modal/PrintReport'
 import PrintUsage from './modal/PrintUsage'
-import PrintStatistic from './modal/PrintStatistic';
+import PrintStatistic from './modal/PrintStatistic'
+
 
 class Home extends Component {
     components={
@@ -33,7 +34,7 @@ class Home extends Component {
         'editor':Editor,
         'printReport': PrintReport,
         'printUsage': PrintUsage,
-        'printStat' : PrintStatistic
+        'printStat' : PrintStatistic,
 
     }
 
