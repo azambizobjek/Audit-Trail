@@ -1,14 +1,11 @@
 import React, { Component,Fragment } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import Breadcrumb from '../layout/Breadrumb'
 import { setActivePage} from '../../actions/layoutInitAction'
 import { toggleAdv } from '../../actions/modalAction'
 import {getListAudit} from '../../actions/auditAction'
-import { Form, Card, CardImg, Button } from 'reactstrap'
+import { Card } from 'reactstrap'
 import moment from 'moment'
-import posed from 'react-pose';
-// import ReportCard from '../card/ReportCard';
 
 
 
@@ -65,29 +62,10 @@ class PrintPage extends Component {
 
     
 
-    const PoseCmp = posed.div({
-      hoverable: true,
-      pressable: true,
-      init: {
-        scale: 1,
-        boxShadow: '0px 0px 0px rgb(0, 0, 0)'
-      },
-      hover: {
-        scale: 1.2,
-        boxShadow: '0px 5px 10px rgb(0, 0, 0)'
-      },
-      press: {
-        scale: 1.1,
-        boxShadow: '0px 2px 5px rgb(0, 0, 0)'
-      }
-    });
-
-
     return (
       <Fragment>
               <div className="breadcrumb-holder">
             <div className="container-fluid">
-            <Breadcrumb/>
             </div>
         </div>
 
@@ -104,7 +82,6 @@ class PrintPage extends Component {
 
                   <div className="row">
                   <div className="col-6 col-md-4 col-lg-2 col-xl-2">
-                  <PoseCmp>
                   <Card  data-pagename="printReport" onClick={this.setActivePage}>
                   <div className="text-center">
                   <img data-pagename="printReport" top width="100%" src={require(`../../img/letter.svg`)}  alt="doc" className="img-card mt-2"/>
@@ -114,7 +91,7 @@ class PrintPage extends Component {
                    <p className="text-center" data-pagename="printReport">List of Records Report</p>
                    </div>
                   </Card>
-                  </PoseCmp>
+                  
                  
                   </div>
 
@@ -122,7 +99,6 @@ class PrintPage extends Component {
            
                   
                   <div className="col-6 col-md-4 col-lg-2 col-xl-2">
-                  <PoseCmp>
                   <Card  data-pagename="printStat" onClick={this.setActivePage}>
                   <div className="text-center">
                   <img data-pagename="printStat" top width="100%" src={require(`../../img/graph.svg`)}  alt="doc" className="img-card mt-2" />
@@ -132,11 +108,9 @@ class PrintPage extends Component {
                   <p className="text-center" data-pagename="printStat">Record Statistic Report</p>
                   </div>
                   </Card>
-                  </PoseCmp>
                   </div>
                   
                   <div className="col-6 col-md-4 col-lg-2 col-xl-2">
-                  <PoseCmp>
                   <Card  data-pagename="printUsage" onClick={this.setActivePage}>
                   <div className="text-center">
                   <img data-pagename="printUsage" top width="100%" src={require(`../../img/system.svg`)}  alt="doc" className="img-card mt-2" />
@@ -146,7 +120,6 @@ class PrintPage extends Component {
                   <p className="text-center" data-pagename="printUsage">System Usage Report</p>
                   </div>
                   </Card>
-                  </PoseCmp>
                   </div>
                   
                   </div>       

@@ -1,13 +1,10 @@
 import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-import Breadcrumb from '../layout/Breadrumb'
 import AuditSearch from '../modal/AuditSearch'
 import 'react-datepicker/dist/react-datepicker.css'
-
 import Tooltip from 'rc-tooltip'
 import moment from 'moment'
-// import {getListErrBatch} from '../../actions/logAction'
 import {getListAudit} from '../../actions/auditAction'
 
 import { VerticalTimeline, VerticalTimelineElement }  from 'react-vertical-timeline-component'
@@ -22,7 +19,7 @@ class index extends Component {
         
         startdate : moment().startOf( 'months'),
         endate : moment().endOf('months'),
-        lastevent : moment().subtract(10, 'days').calendar()
+        lastevent : moment().subtract(20, 'days').calendar()
     }
 }
 
@@ -102,7 +99,6 @@ class index extends Component {
         <Fragment>
         <div className="breadcrumb-holder">
             <div className="container-fluid">
-            <Breadcrumb/>
             </div>
         </div>
 
@@ -120,7 +116,7 @@ class index extends Component {
                     arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
                     >
                     <button className="btn btn-sm btn-primary" onClick={this.searchLogByToday} >
-                    <i className="fa fa-folder"></i>
+                    <i className="fa fa-calendar"></i>
                     </button>
                     </Tooltip>
                     
@@ -130,7 +126,7 @@ class index extends Component {
                     arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
                     >
                     <button className="btn btn-sm btn-primary ml-2" onClick={this.searchLast20Events} >
-                    <i className="fa fa-th-list"></i>
+                    <i className="fa fa-calendar-check-o "></i>
                     </button>
                     </Tooltip>
                     
@@ -140,7 +136,7 @@ class index extends Component {
                     arrowContent={<div className="rc-tooltip-arrow-inner"></div>}
                     >
                     <button className="btn btn-sm btn-primary ml-2" onClick={this.searchLogThisMonth} >
-                    <i className="fa fa-th"></i>
+                    <i className="fa fa-calendar-minus-o"></i>
                     </button>
                     </Tooltip>
                     

@@ -5,7 +5,6 @@ import ReactToPrint from "react-to-print";
 import ComponentPrintUsage from '../modal/ComponentPrintUsage'
 import Tooltip from 'rc-tooltip'
 import {getListAudit} from '../../actions/auditAction'
-import Breadcrumb from '../layout/Breadrumb'
 
 
 class PrintUsage extends Component {
@@ -19,7 +18,6 @@ class PrintUsage extends Component {
       <Fragment>
           <div className="breadcrumb-holder">
            <div className="container-fluid">
-           <Breadcrumb/>
             </div>
             </div>
             

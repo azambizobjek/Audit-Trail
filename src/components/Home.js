@@ -1,10 +1,7 @@
 import React, { Component, Fragment } from 'react'
-
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
-
 import {setNavToggle,setPageClass, setSideNavClass} from '../actions/layoutInitAction'
-
 import {Footer, SideNav, TopNav} from '../components/layout'
 import Dashpage from './dashboard/DashPage'
 import PrintPage from './auditLog/PrintPage'
@@ -16,8 +13,26 @@ import FolEditor from './editor/FolEditor'
 import DocEditor from './editor/DocEditor'
 import PrintReport from './modal/PrintReport'
 import PrintUsage from './modal/PrintUsage'
-import PrintStatistic from './modal/PrintStatistic'
+import PrintStatistic from './modal/PrintStatistic';
+import posed, {PoseGroup} from 'react-pose';
+import Breadcrumb from './layout/Breadrumb'
 
+const RouteContainer = posed.div({
+    enter: {
+        y: 0,
+        opacity: 1,
+        delay: 300,
+        transition: {
+          y: { type: 'spring', stiffness: 1000, damping: 15 },
+          default: { duration: 300 }
+        }
+      },
+      exit: {
+        y: 50,
+        opacity: 0,
+        transition: { duration: 150 }
+      },
+  });
 
 class Home extends Component {
     components={
@@ -56,16 +71,29 @@ class Home extends Component {
         this.props.setNavToggle(false, pageClass, navClass)
     }
 
+    
+
   render() {
       const {pageClass,activePage}=this.props.layout
       const Activepage=this.components[activePage]
+
+      
+
+      
+
     return (
         <Fragment>
-            <SideNav/>
+            <SideNav />
             <div className={pageClass}>
                 <TopNav/>
+                <Breadcrumb/>
+
+
+                <PoseGroup>
+                <RouteContainer key={activePage}>
                 <Activepage/>
-         
+                </RouteContainer>
+                </PoseGroup>
 
             <Footer/>
         </div>

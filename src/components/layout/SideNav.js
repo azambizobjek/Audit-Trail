@@ -90,7 +90,7 @@ class SideNav extends React.Component {
 
             <li>
               <a href="/" aria-expanded={this.state.documentToggle} data-toggle="collapse" name="doc" className={this.state.documentToggle ? '' : 'collapsed'} onClick={this.toggleClass} >
-              <div className="userIcon"><img src={require(`../../img/log.svg`)} alt="doc" className="img-fluid p-1"/></div>Audit Log </a>
+              <div className="userIcon"><img src={require(`../../img/fill.svg`)} alt="doc" className="img-fluid p-1"/></div>Audit Log </a>
               <ul id="chartsDropdown" className={this.state.documentToggle ? 'collapse list-unstyled show' : 'collapse list-unstyled'}>
 
              
@@ -98,14 +98,14 @@ class SideNav extends React.Component {
                 <li>
                     <a href="/" data-pagename="log" onClick={this.setActivePage}>
                     <div className="userIcon" data-pagename="log">
-                    <img src={require(`../../img/search1.svg`)} alt="doc"  data-pagename="log"/>
+                    <img src={require(`../../img/search99.svg`)} alt="doc"  data-pagename="log"/>
                     </div>Search
                     </a>
                 </li>
                 <li>
                     <a href="/" data-pagename="print" onClick={this.setActivePage}>
                     <div className="userIcon" data-pagename="print">
-                    <img src={require(`../../img/search1.svg`)} alt="doc"  data-pagename="print"/>
+                    <img src={require(`../../img/print.svg`)} alt="doc"  data-pagename="print"/>
                     </div>Print Report
                     </a>
                 </li>

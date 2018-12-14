@@ -2,7 +2,6 @@ import React, { Component, Fragment } from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {getListAudit} from '../../actions/auditAction'
-import moment from 'moment'
 
 
 class ComponentToPrint extends Component {
